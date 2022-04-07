@@ -26,6 +26,8 @@ contract VestingWalletTest is DSTest {
     address beneficiary = address(1337);
     // Let's say we start vesting from now on for 86400*2 seconds.
     VestingWallet vw = new VestingWallet(beneficiary, uint64(block.timestamp), 86400*2);
+    st.transfer(address(vw), 100);
+    assertEq(st.balanceOf(address(vw)), 100);
     assertEq(vw.vestedAmount(uint64(block.timestamp)), 0);
 
     // now 1 day passes, see: https://book.getfoundry.sh/reference/cheatcodes.html
