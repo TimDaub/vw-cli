@@ -1,4 +1,4 @@
-pragma solidity ^0.5.7;
+pragma solidity ^0.8.6;
 // SPDX-License-Identifier: (Apache-2.0 AND CC-BY-4.0)
 
 import "./SafeMath.sol";
@@ -35,10 +35,6 @@ contract Simpletoken {
         emit Transfer(address(0), msg.sender, _totalSupply);
     }
 
-    //fallback () external payable { // >= 0.6.0
-    function () external payable { //0.5.x
-        revert();
-    }
 
     function balanceOf(address _owner) public view returns (uint256) {
         return balances[_owner];

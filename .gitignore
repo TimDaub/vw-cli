@@ -2,3 +2,5 @@
 venv/
 build/
 *~
+cache
+out
